@@ -1,0 +1,75 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    {% include 'composants/_navbar.html.twig' %}
+
+    <!-- Start Products
+============================================= -->
+    <div class="products-area pos-rel de-padding">
+        <div class="product-tree">
+            <img src="assets/img/tree/4.png" alt="thumb">
+            <img src="assets/img/tree/snake.png" class="up-move" alt="thumb">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 offset-xl-3">
+                    <div class="site-title text-center">
+                        <h2>Our Products</h2>
+                        <p class="mb-0">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae quae minus, dolorem praesentium explicabo ipsam.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="products-wpr grid-4">
+                {% for goat in goats %}
+                    <div class="products-box">
+                        <div class="products-pic">
+                            <img style=" width: 400px" src="{{ goat.image }}" alt="thumb">
+                            <ul class="carts d-flex align-items-center">
+                                <li>
+                                    <a href="#">
+                                        <i class="icofont-cart-alt"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icofont-heart-alt"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icofont-eye-alt"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="products-desc">
+                            <a href="product-single.html" target="_blank">
+                                <h5>{{ goat.nickname }}</h5>
+                            </a>
+                            <p>
+                                {{ goat.goat_description }}
+                            </p>
+
+                            <div class="products-price">
+                                <span>Cpacité de broutage : {{ goat.capacity }}</span>
+                                <span>Nom : {{ goat.name }}</span>
+                            </div>
+                            <div class="add-to-cart">
+                                <a href="#" class="cart-btn">Je loue cette chèvre</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="load-more text-center mt-100">
+                <a href="shop.html" class="tm-btn-2">
+                    Je loue cette chèvre
+                    <i class="icofont-long-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- End Products -->
+{% endblock %}
